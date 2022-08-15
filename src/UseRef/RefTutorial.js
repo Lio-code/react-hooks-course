@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 
+//The useRef Hook allows you to persist values between renders. It can be used to store a mutable value that does not cause a re-render when updated.
+
 function RefTutorial() {
   const inputRef = useRef(null);
 

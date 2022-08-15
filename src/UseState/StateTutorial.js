@@ -16,4 +16,4 @@ const StateTutorial = () => {
   );
 };
 
-export default StateTutorial;
+

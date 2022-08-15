@@ -1,5 +1,9 @@
 import React, { useReducer } from "react";
 
+//usefull hooks when we have complex states change happening at the same time upon event.
+
+const INCREMENT = "IN"
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT":
