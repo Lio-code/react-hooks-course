@@ -1,6 +1,10 @@
 import axios from "axios";
 import { useEffect, useState, useMemo } from "react";
 
+//useMemo est un hook qui permet d'optimiser les performances de son code. Il évite des calculs inutiles en conditionnant le traitement d'une fonction avec une dépendance.
+
+// Dans l'exemple ci-dessous, findLongestName n'a pas besoin d'être recalculé à chaque fois que l'on clique sur le bouton Toggle. Relancer le calcul de cette fonction a du sens uniquement si data est mise à jour, et le "commentaire" le plus long est susceptible de changer. On utilise donc ici useMemo avec data comme dépendance, de la même manière que l'on utiliserait une dépendance avec useEffect.
+
 export default function MemoTutorial() {
   const [data, setData] = useState(null);
   const [toggle, setToggle] = useState(false);
@@ -25,11 +29,10 @@ export default function MemoTutorial() {
     }
 
     console.log("THIS WAS COMPUTED");
-
     return longestName;
   };
 
-  const getLongestName = useMemo(() => findLongestName(data), [toggle]);
+  const getLongestName = useMemo(() => findLongestName(data), [data]);
 
   return (
     <div className="App">
